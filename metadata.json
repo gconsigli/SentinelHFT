@@ -1,0 +1,7 @@
+{
+  "name": "Sentinel HFT Wafer-Scale",
+  "description": "High-frequency trading risk dashboard using Cerebras WSE-3 and NVIDIA RTX hardware.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
