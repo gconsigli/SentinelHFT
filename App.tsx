@@ -153,7 +153,7 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    const analysisTimer = setInterval(runAnalysis, 400);
+    const analysisTimer = setInterval(runAnalysis, 4000);
     return () => clearInterval(analysisTimer);
   }, [currentEngine, selectedAsset, cerebrasKey]);
 
