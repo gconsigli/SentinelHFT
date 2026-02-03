@@ -17,7 +17,8 @@ import {
   WifiOff,
   Key,
   Settings,
-  Lock
+  Lock,
+  Github
 } from 'lucide-react';
 import { 
   AreaChart, 
@@ -209,6 +210,16 @@ const App: React.FC = () => {
             {currentEngine === InferenceEngine.CEREBRAS ? <Zap size={12} className="animate-pulse" /> : <Cpu size={12} />}
             <span className="uppercase tracking-wider">{currentEngine}</span>
           </button>
+
+          <a
+            href="https://github.com/gconsigli/SentinelHFT"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded hover:bg-slate-800 text-slate-500 hover:text-slate-300 transition-colors"
+            aria-label="View on GitHub"
+          >
+            <Github size={18} />
+          </a>
         </div>
       </header>
 
