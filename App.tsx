@@ -177,6 +177,12 @@ const App: React.FC = () => {
               <span>Add your Cerebras API key in <button type="button" onClick={() => setShowSettings(true)} className="font-bold underline hover:text-blue-200">Settings</button> (gear icon) to use the demo.</span>
             </div>
           )}
+          {currentEngine === InferenceEngine.NVIDIA_LOCAL && (
+            <div className="flex items-center gap-2 px-3 py-2 rounded bg-amber-500/10 border border-amber-500/30 text-[10px] text-amber-300">
+              <Cpu size={12} />
+              <span>NVIDIA Local works only when running the app locally.</span>
+            </div>
+          )}
           <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-900/80 border border-slate-800 text-[10px] font-bold">
             {apiStatus === 'connected' ? <Wifi size={12} className="text-emerald-500" /> : <WifiOff size={12} className="text-red-500" />}
             <span className={apiStatus === 'connected' ? "text-emerald-500 uppercase" : "text-red-500 uppercase"}>
