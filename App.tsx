@@ -42,7 +42,7 @@ const ASSET_METADATA: Record<string, { name: string, basePrice: number, vol: num
 };
 
 const App: React.FC = () => {
-  const [currentEngine, setCurrentEngine] = useState<InferenceEngine>(InferenceEngine.NVIDIA_LOCAL);
+  const [currentEngine, setCurrentEngine] = useState<InferenceEngine>(InferenceEngine.CEREBRAS);
   const [reports, setReports] = useState<RiskReport[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [riskScore, setRiskScore] = useState(44.8);
@@ -171,6 +171,12 @@ const App: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-6">
+          {currentEngine === InferenceEngine.CEREBRAS && !cerebrasKey && !hasEnvKey && (
+            <div className="flex items-center gap-2 px-3 py-2 rounded bg-blue-500/10 border border-blue-500/30 text-[10px] text-blue-300">
+              <Key size={12} />
+              <span>Add your Cerebras API key in <button type="button" onClick={() => setShowSettings(true)} className="font-bold underline hover:text-blue-200">Settings</button> (gear icon) to use the demo.</span>
+            </div>
+          )}
           <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-900/80 border border-slate-800 text-[10px] font-bold">
             {apiStatus === 'connected' ? <Wifi size={12} className="text-emerald-500" /> : <WifiOff size={12} className="text-red-500" />}
             <span className={apiStatus === 'connected' ? "text-emerald-500 uppercase" : "text-red-500 uppercase"}>
